@@ -1,0 +1,168 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Asap+Condensed&display=swap');
+
+body {
+  @apply bg-slate-50 text-slate-900;
+}
+
+::selection {
+  @apply bg-indigo-500 text-white;
+}
+
+@layer components {
+  .overview-card {
+    @apply bg-white dark:bg-[rgb(27,30,33)]
+  }
+}
+
+/* body {
+  background-image: url("/hero-illustration.svg");
+  background-repeat: no-repeat;
+} */
+
+.sidebar {
+  background-color: rgb(47 54 71);
+}
+
+@font-face {
+  font-family: 'Prompt';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../fonts/Prompt.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/rubik/v26/iJWZBXyIfDnIV5PNhY1KTN7Z-Yh-B4iFV0UzdYPFkZVO.woff) format('woff');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Alegreya Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../fonts/AlegreyaSans.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../fonts/Inter.woff') format('woff');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.signup-page {
+  background-image: url('/gradient-blur.svg');
+  background-position: center;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+input:checked~.dot {
+  transform: translateX(100%);
+  /* background-color: #132b50; */
+}
+
+/* All .overview-card children should have the same bg color */
+
+.dark .overview-card > div > div {
+  background-color: rgb(27, 30, 33) !important;
+}
+
+.dark .dashboard {
+  background-color: rgb(21, 24, 27);
+}
+
+.pricing-gradient {
+  transform: translateZ(0);
+}
+
+.pricing-heading {
+  font-size: 2.25rem;
+  line-height: 1.277;
+  letter-spacing: -0.017em;
+  font-weight: 800;
+}
+
+@media (min-width: 768px) {
+  .pricing-heading {
+    font-size: 2.75rem;
+    line-height: 1.2;
+    letter-spacing: -0.017em;
+  }
+}
+
+@media (min-width: 1280px) {
+  .pricing-tabs {
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
+    font-size: 0.875rem;
+    line-height: 1.5715;
+  }
+}
+
+.pricing-tabs {
+  font-size: 0.875rem;
+  line-height: 1.5715;
+}
+
+.dollar-sign {
+  font-size: 1.125rem;
+  line-height: 1.5;
+  letter-spacing: -0.017em;
+}
+
+.price {
+  font-size: 1.875rem;
+  line-height: 1.333;
+  letter-spacing: -0.017em;
+}
+
+@media not all and (min-width: 768px) {
+  .pricing-tabs>div:nth-of-type(4n+2) {
+    order: 1;
+  }
+
+  .pricing-tabs>div:nth-of-type(4n+3) {
+    order: 2;
+  }
+
+  .pricing-tabs>div:nth-of-type(4n+4) {
+    order: 3;
+  }
+
+  .pricing-tabs>div:nth-of-type(4n+5) {
+    order: 4;
+  }
+}
+
+@media not all and (min-width: 768px) {
+  .pricing-tabs>div:nth-of-type(-n+5):nth-of-type(n+1) {
+    border-top-left-radius: 1.5rem;
+    border-top-right-radius: 1.5rem;
+  }
+}

@@ -1,0 +1,176 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator enums {
+  provider = "ts-node --transpile-only ./enum-generator"
+}
+
+generator zod {
+  provider = "zod-prisma"
+}
+
+enum Role {
+  OWNER
+  ADMIN
+}
+
+enum Plan {
+  FREE
+  PRO
+  ENTERPRISE
+}
+
+enum Status {
+  OPEN
+  UNDER_REVIEW
+  PLANNED
+  IN_PROGRESS
+  COMPLETED
+  CLOSED
+}
+
+enum Sentiment {
+  POSITIVE
+  NEUTRAL
+  NEGATIVE
+}
+
+enum Source {
+  MANUAL
+  DISCORD
+  WIDGET
+  PAGE
+  SLACK
+  INTERCOM
+  CRISP
+  TELEGRAM
+  TEAMS
+}
+
+enum Visibility {
+  PUBLIC
+  PRIVATE
+}
+
+model Account {
+  id                       String  @id @default(cuid())
+  userId                   String
+  type                     String
+  provider                 String
+  providerAccountId        String
+  refresh_token            String? @db.Text
+  access_token             String? @db.Text
+  expires_at               Int?
+  token_type               String?
+  scope                    String?
+  id_token                 String? @db.Text
+  session_state            String?
+  refresh_token_expires_in Int?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model User {
+  id                        String            @id @default(cuid())
+  name                      String?
+  password                  String?
+  email                     String?           @unique
+  emailVerified             DateTime?
+  image                     String?
+  accounts                  Account[]
+  workspaces                Workspace[]
+  feedbacks                 Feedback[]
+  passwordResetAttempts     DateTime[]
+  featureRequestComments    FeedbackComment[]
+  emailVerificationAttempts DateTime[]
+  WorkspaceMember           WorkspaceMember[]
+  Board                     Board[]
+}
+
+model FeedbackComment {
+  commentId  String   @id @default(cuid())
+  feedbackId String
+  authorId   String
+  content    String
+  createdAt  DateTime @default(now())
+  author     User     @relation(fields: [authorId], references: [id])
+  feedback   Feedback @relation(fields: [feedbackId], references: [id])
+}
+
+model Feedback {
+  id          String            @id @default(cuid())
+  title       String
+  description String
+  upvotes     Int               @default(0)
+  downvotes   Int               @default(0)
+  source      Source
+  status      Status            @default(OPEN)
+  comments    FeedbackComment[]
+  sentiment   Sentiment
+  createdAt   DateTime          @default(now())
+  workspace   Workspace         @relation(fields: [workspaceId], references: [id])
+  author      User              @relation(fields: [authorId], references: [id])
+  board       Board             @relation(fields: [boardId], references: [id])
+  boardId     String
+  authorId    String
+  workspaceId String
+}
+
+model WorkspaceMember {
+  id          String    @id @default(cuid())
+  workspaceId String
+  userId      String
+  role        Role
+  addedAt     DateTime  @default(now())
+  user        User      @relation(fields: [userId], references: [id])
+  workspace   Workspace @relation(fields: [workspaceId], references: [id])
+}
+
+model Board {
+  id                String     @id @default(cuid())
+  workspaceId       String
+  createdById       String
+  name              String
+  visibility        Visibility
+  feedbacks         Feedback[]
+  createdAt         DateTime   @default(now())
+  createdBy         User       @relation(fields: [createdById], references: [id])
+  workspace         Workspace  @relation(fields: [workspaceId], references: [id])
+  workspaceMemberId String?
+}
+
+model Workspace {
+  id                         String            @id @default(cuid())
+  createdAt                  DateTime          @default(now())
+  ownerID                    String
+  name                       String
+  boards                     Board[]
+  members                    WorkspaceMember[]
+  visibility                 Visibility        @default(PUBLIC)
+  plan                       Plan              @default(FREE)
+  publicallyDisplayDownvotes Boolean           @default(false)
+  anonymousVoting            Boolean           @default(false)
+  anonymousComments          Boolean           @default(false)
+  requestModeration          Boolean           @default(false)
+  anonymousRequests          Boolean           @default(false)
+  maxFeedbackCharacters      Int               @default(1000)
+  maxCommentCharacters       Int               @default(1000)
+  maxFeedbackTitleCharacters Int               @default(100)
+  integrations               Json[]
+  iconURL                    String?
+  owner                      User              @relation(fields: [ownerID], references: [id])
+  subDomain                  String            @unique
+  customDomain               String?           @unique
+  Feedback                   Feedback[]
+}

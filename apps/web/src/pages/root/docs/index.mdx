@@ -1,0 +1,30 @@
+import { Guides } from "@/components/docs/Guides";
+import { Resources } from "@/components/docs/Resources";
+import { HeroPattern } from "@/components/docs/HeroPattern";
+import { Layout } from "@/components/docs/Layout";
+
+export const description = "Learn everything there is to know about the Germla API and integrate Germla into your product.";
+
+export const sections = [
+  { title: "Guides", id: "guides" },
+  { title: "Resources", id: "resources" },
+];
+
+<HeroPattern />
+
+# Documentation
+
+Welcome to the Documentation! Learn about self-hosting Germla, using the API and other topics in this documentation. {{ className: 'lead' }}
+
+<div className="not-prose mb-16 mt-6 flex gap-3">
+  <Button href="/quickstart" arrow="right" children="Quickstart" />
+  <Button href="/sdks" variant="outline" children="Explore SDKs" />
+</div>
+
+## Getting started {{ anchor: false }}
+
+Germla is an open source project which can be self-hosted on your own infrastructure () or you can use the hosted version.
+
+<Guides />
+
+<Resources />
