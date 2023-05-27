@@ -9,13 +9,13 @@ export default function GeneralSettings({ site }: { site: Site }) {
                 <label className="text-sm" htmlFor="name">
                     Name
                 </label>
-                <input className="block text-sm py-2 w-full px-4 rounded border border-slate-700 focus:outline-none focus:border-indigo-500 dark:bg-slate-800" name="name" id="name" />
+                <input className="block text-sm py-2 w-full px-4 rounded border border-zinc-700 focus:outline-none focus:border-indigo-500 dark:bg-zinc-800" name="name" id="name" />
             </div>
             <div>
                 <label className="text-sm" htmlFor="name">
                     Name
                 </label>
-                <input className="block text-sm py-2 w-full px-4 rounded border border-slate-700 focus:outline-none focus:border-indigo-500 dark:bg-slate-800" name="name" id="name" />
+                <input className="block text-sm py-2 w-full px-4 rounded border border-zinc-700 focus:outline-none focus:border-indigo-500 dark:bg-zinc-800" name="name" id="name" />
             </div>
         </div>
     )

@@ -3,7 +3,6 @@ import type { ReactNode } from "react";
 import { Logo } from "@/components/Logo";
 import type { TocEntry } from "remark-mdx-toc";
 import { useEffect, useRef, useState } from "react";
-import { Router, useRouter } from "next/router";
 
 type TOSType = {
     selector: string;
@@ -117,19 +116,19 @@ export const TOC = ({ selector }: TOSType) => {
 
 export default function DocsLayout({ children, toc }: { children: ReactNode, toc: TocEntry[] }) {
     const rightSidebarLogo = (
-        <span className="uppercase text-slate-500 mt-10">ON THIS PAGE</span>
+        <span className="text-zinc-500 mt-10">On this page</span>
     )
     return (
         <>
-            <Sidebar logo={Logo} items={[]} className="!bg-slate-50 border-r" />
-            <div className="prose bg-slate-50 p-4 h-screen sm:ml-64 lg:mr-64 prose-slate max-w-none">
+            <Sidebar logo={Logo} items={[]} className="!bg-zinc-50 border-r" />
+            <div className="prose bg-zinc-50 p-4 h-screen sm:ml-64 lg:mr-64 prose-zinc max-w-none">
                 {children}
                 <footer className="not-prose mx-auto pt-8 relative border-t">
-                    <span className="text-slate-500 left-0">© 2021 Germla</span>
+                    <span className="text-zinc-500 left-0">© {new Date().getFullYear()} Germla</span>
                 </footer>
             </div>
             <div className="hidden lg:flex">
-                <Sidebar position="right" logo={rightSidebarLogo} className="!bg-slate-50 border-l">
+                <Sidebar position="right" logo={rightSidebarLogo} className="!bg-zinc-50 border-l">
                     <TOC selector=".prose" />
                 </Sidebar>
             </div>

@@ -2,27 +2,15 @@ import { createEnv } from "@t3-oss/env-nextjs";
 import { z } from "zod";
 
 export const env = createEnv({
-    /**
-     * Specify your server-side environment variables schema here. This way you can ensure the app isn't
-     * built with invalid env vars.
-     */
     server: {
-        DATABASE_URL: z.string().url(),
-        DISCORD_PUBLIC_TOKEN: z.string(),
+        CRON_MAX_BATCH_SIZE: z.number().int().positive().optional(),
+        DISCORD_PUBLIC_KEY: z.string(),
     },
-    /**
-     * Specify your client-side environment variables schema here.
-     * For them to be exposed to the client, prefix them with `NEXT_PUBLIC_`.
-     */
     client: {
-        // NEXT_PUBLIC_CLIENTVAR: z.string(),
     },
-    /**
-     * Destructure all variables from `process.env` to make sure they aren't tree-shaken away.
-     */
     runtimeEnv: {
-        DATABASE_URL: process.env.DATABASE_URL,
-        // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
+        CRON_MAX_BATCH_SIZE: process.env.CRON_MAX_BATCH_SIZE,
+        DISCORD_PUBLIC_KEY: process.env.DISCORD_PUBLIC_KEY,
     },
     skipValidation: !!process.env.CI,
 });

@@ -202,12 +202,12 @@ export default function WorkspaceOverview({
                                 style={{
                                     padding: ".5rem .75rem",
                                 }}
-                                className="overview-card h-full inline-flex border-slate-200 dark:border-slate-700 dark:hover:border-slate-600 border rounded shadow-md transition-colors duration-100 items-center justify-center hover:border-slate-300 border-1 text-slate-500 hover:text-slate-600 dark:text-slate-200 dark:hover:text-slate-300"
+                                className="overview-card h-full inline-flex border-zinc-200 dark:border-zinc-700 dark:hover:border-zinc-600 border rounded shadow-md transition-colors duration-100 items-center justify-center hover:border-zinc-300 border-1 text-zinc-500 hover:text-zinc-600 dark:text-zinc-200 dark:hover:text-zinc-300"
                             >
                                 <span className="sr-only">Filter</span>
                                 <wbr />
                                 <svg
-                                    className="w-4 h-4 dark:fill-slate-200 fill-slate-700"
+                                    className="w-4 h-4 dark:fill-zinc-200 fill-zinc-700"
                                     viewBox="0 0 16 16"
                                 >
                                     <path d="M9 15H7a1 1 0 010-2h2a1 1 0 010 2zM11 11H5a1 1 0 010-2h6a1 1 0 010 2zM13 7H3a1 1 0 010-2h10a1 1 0 010 2zM15 3H1a1 1 0 010-2h14a1 1 0 010 2z"></path>
@@ -222,19 +222,19 @@ export default function WorkspaceOverview({
                                 leaveFrom="transform opacity-100 scale-100"
                                 leaveTo="transform opacity-0 scale-95"
                             >
-                                <Menu.Items className="absolute right-0 shadow-xl mt-2 w-56 origin-top-right rounded-md overview-card dark:text-slate-100 ring-1 ring-black ring-opacity-5 focus:outline-none">
+                                <Menu.Items className="absolute right-0 shadow-xl mt-2 w-56 origin-top-right rounded-md overview-card dark:text-zinc-100 ring-1 ring-black ring-opacity-5 focus:outline-none">
                                     <Menu.Item
                                         as={"button"}
                                         onClick={() =>
                                             setFilter(filter === "last24h" ? null : "last24h")
                                         }
                                         className={
-                                            "hover:bg-indigo-500 border-b border-slate-300 dark:border-slate-700 group flex justify-between flex-row rounded-sm items-center w-full px-2 py-2 text-sm"
+                                            "hover:bg-indigo-500 border-b border-zinc-300 dark:border-zinc-700 group flex justify-between flex-row rounded-sm items-center w-full px-2 py-2 text-sm"
                                         }
                                     >
                                         Last 24 hours
                                         {filter === "last24h" ? (
-                                            <span className="mr-2 text-xs flex text-indigo-500 group-hover:text-slate-100">
+                                            <span className="mr-2 text-xs flex text-indigo-500 group-hover:text-zinc-100">
                                                 <svg
                                                     className="w-4 h-4 fill-current"
                                                     viewBox="0 0 16 16"
@@ -250,12 +250,12 @@ export default function WorkspaceOverview({
                                             setFilter(filter === "last7d" ? null : "last7d")
                                         }
                                         className={
-                                            "hover:bg-indigo-500 border-b border-slate-300 dark:border-slate-700 group flex justify-between flex-row rounded-sm items-center w-full px-2 py-2 text-sm"
+                                            "hover:bg-indigo-500 border-b border-zinc-300 dark:border-zinc-700 group flex justify-between flex-row rounded-sm items-center w-full px-2 py-2 text-sm"
                                         }
                                     >
                                         Last 7 days
                                         {filter === "last7d" ? (
-                                            <span className="mr-2 text-xs flex text-indigo-500 group-hover:text-slate-100">
+                                            <span className="mr-2 text-xs flex text-indigo-500 group-hover:text-zinc-100">
                                                 <svg
                                                     className="w-4 h-4 fill-current"
                                                     viewBox="0 0 16 16"
@@ -271,12 +271,12 @@ export default function WorkspaceOverview({
                                             setFilter(filter === "last30d" ? null : "last30d")
                                         }
                                         className={
-                                            "hover:bg-indigo-500 border-b border-slate-300 dark:border-slate-700 group flex justify-between flex-row rounded-sm items-center w-full px-2 py-2 text-sm"
+                                            "hover:bg-indigo-500 border-b border-zinc-300 dark:border-zinc-700 group flex justify-between flex-row rounded-sm items-center w-full px-2 py-2 text-sm"
                                         }
                                     >
                                         Last 30 days
                                         {filter === "last30d" ? (
-                                            <span className="mr-2 text-xs flex text-indigo-500 group-hover:text-slate-100">
+                                            <span className="mr-2 text-xs flex text-indigo-500 group-hover:text-zinc-100">
                                                 <svg
                                                     className="w-4 h-4 fill-current"
                                                     viewBox="0 0 16 16"
@@ -297,7 +297,7 @@ export default function WorkspaceOverview({
                                     >
                                         Custom range
                                         {filter === "custom" ? (
-                                            <span className="mr-2 text-xs flex text-indigo-500 group-hover:text-slate-100">
+                                            <span className="mr-2 text-xs flex text-indigo-500 group-hover:text-zinc-100">
                                                 <svg
                                                     className="w-4 h-4 fill-current"
                                                     viewBox="0 0 16 16"
@@ -326,7 +326,7 @@ export default function WorkspaceOverview({
                                 primaryColor="indigo"
                                 containerClassName={"overview-card"}
                                 inputClassName={
-                                    "relative shadow-md transition-colors duration-300 py-2.5 pl-4 pr-14 w-full focus:outline-none overview-card dark:text-white/80 rounded-lg tracking-wide font-light text-sm placeholder-slate-400 bg-white disabled:opacity-40 disabled:cursor-not-allowed focus:border-indigo-500"
+                                    "relative shadow-md transition-colors duration-300 py-2.5 pl-4 pr-14 w-full focus:outline-none overview-card dark:text-white/80 rounded-lg tracking-wide font-light text-sm placeholder-zinc-400 bg-white disabled:opacity-40 disabled:cursor-not-allowed focus:border-indigo-500"
                                 }
                                 value={value}
                                 placeholder="Select a date range"
@@ -339,11 +339,11 @@ export default function WorkspaceOverview({
             </div>
             {/* Grid of cards */}
             <div className="grid dark:text-white grid-cols-1 mt-3 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                <div className="overview-card shadow-xl rounded-sm border border-slate-200 dark:border-none p-4">
+                <div className="overview-card shadow-xl rounded-sm border border-zinc-200 dark:border-none p-4">
                     <h4 className="text-lg font-semibold">Total feedback</h4>
                     <p>{feedbacks.data?.length}</p>
                 </div>
-                <div className="overview-card shadow-xl rounded-sm border border-slate-200 dark:border-none p-4">
+                <div className="overview-card shadow-xl rounded-sm border border-zinc-200 dark:border-none p-4">
                     <h4 className="text-lg font-semibold">Feedback open</h4>
                     <p>
                         {
@@ -353,7 +353,7 @@ export default function WorkspaceOverview({
                         }
                     </p>
                 </div>
-                <div className="overview-card shadow-xl rounded-sm border border-slate-200 dark:border-none p-4">
+                <div className="overview-card shadow-xl rounded-sm border border-zinc-200 dark:border-none p-4">
                     <h4 className="text-lg font-semibold">Feedback under review</h4>
                     <p>
                         {
@@ -363,7 +363,7 @@ export default function WorkspaceOverview({
                         }
                     </p>
                 </div>
-                <div className="overview-card shadow-xl rounded-sm border border-slate-200 dark:border-none p-4">
+                <div className="overview-card shadow-xl rounded-sm border border-zinc-200 dark:border-none p-4">
                     <h4 className="text-lg font-semibold">Feedback planned</h4>
                     <p>
                         {
@@ -373,7 +373,7 @@ export default function WorkspaceOverview({
                         }
                     </p>
                 </div>
-                <div className="overview-card shadow-xl rounded-sm border border-slate-200 dark:border-none p-4">
+                <div className="overview-card shadow-xl rounded-sm border border-zinc-200 dark:border-none p-4">
                     <h4 className="text-lg font-semibold">Feedback completed</h4>
                     <p>
                         {
@@ -383,7 +383,7 @@ export default function WorkspaceOverview({
                         }
                     </p>
                 </div>
-                <div className="overview-card shadow-xl rounded-sm border border-slate-200 dark:border-none p-4">
+                <div className="overview-card shadow-xl rounded-sm border border-zinc-200 dark:border-none p-4">
                     <h4 className="text-lg font-semibold">Feedback in progress</h4>
                     <p>
                         {
@@ -401,17 +401,17 @@ export default function WorkspaceOverview({
                 <Line data={feedbackData} options={chartOptions} />
             </div>
             <div className="grid dark:text-white mt-3 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                <div className="overview-card shadow-xl rounded-sm border border-slate-200 dark:border-none p-4">
+                <div className="overview-card shadow-xl rounded-sm border border-zinc-200 dark:border-none p-4">
                     <h4 className="text-lg font-semibold">Sentiment</h4>
                     <p>Sentiment analysis of feedback</p>
                     <Pie data={sentimentData} />
                 </div>
-                <div className="overview-card shadow-xl rounded-sm border border-slate-200 dark:border-none p-4">
+                <div className="overview-card shadow-xl rounded-sm border border-zinc-200 dark:border-none p-4">
                     <h4 className="text-lg font-semibold">Sources</h4>
                     <p>Top sources for feedback</p>
                     <Pie data={sourcesData} />
                 </div>
-                <div className="overview-card shadow-xl rounded-sm border border-slate-200 dark:border-none p-4">
+                <div className="overview-card shadow-xl rounded-sm border border-zinc-200 dark:border-none p-4">
                     <h4 className="text-lg font-semibold">Sources</h4>
                     <p>Top sources for feedback</p>
                     <Line data={usersData} options={chartOptions} />

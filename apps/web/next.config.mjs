@@ -1,9 +1,11 @@
+// console.log(process.env)
 import nextMDX from '@next/mdx';
 import { remarkCodeHike } from '@code-hike/mdx';
 import { remarkMdxToc } from 'remark-mdx-toc';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeSlug from 'rehype-slug';
-import theme from "shiki/themes/dracula.json" assert { type: "json" }
+import theme from "shiki/themes/dracula.json" assert { type: "json" };
+// import './src/env.mjs';
 
 const withMDX = nextMDX({
   options: {

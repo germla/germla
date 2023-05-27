@@ -1,4 +1,4 @@
 {
     "extends": "@germla/tsconfig/base.json",
-    "include": ["env.mjs", "src"]
+    "include": ["src"]
 }

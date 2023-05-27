@@ -15,7 +15,7 @@ export const config = {
 
 export default async function middleware(req: NextRequest) {
   const url = req.nextUrl;
-  const hostname = req.headers.get("host") || "germla.com";
+  const hostname = req.headers.get("host") || "germla.space";
   const path = url.pathname;
   /*  You have to replace ".vercel.pub" with your own domain if you deploy this example under your domain.
       You can also use wildcard subdomains on .vercel.app links that are associated with your Vercel team slug
@@ -24,8 +24,8 @@ export default async function middleware(req: NextRequest) {
   const currentHost =
     process.env.NODE_ENV === "production" && process.env.VERCEL === "1"
       ? hostname
-          .replace(`.germla.com`, "")
-          .replace(`.germla.com:3000`, "")
+          .replace(`.germla.space`, "")
+          .replace(`.germla.space:3000`, "")
       : hostname.replace(`.localhost:3000`, "");
   if (currentHost == "app") {
     // if (

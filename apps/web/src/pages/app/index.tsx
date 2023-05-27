@@ -41,7 +41,7 @@ export default function App(props: AppProps) {
     <>
       <Seo title="App" />
       <div className="flex justify-center items-center h-screen">
-        <div className="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 dark:bg-slate-800 dark:border-slate-700">
+        <div className="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 dark:bg-zinc-800 dark:border-zinc-700">
           <h5 className="mb-3 text-base font-semibold text-gray-900 md:text-xl dark:text-white">
             Choose your site
           </h5>

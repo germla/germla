@@ -33,11 +33,11 @@ export default function MobileSidebar({ open, setOpen }: Props) {
             <Transition.Child
               as={Fragment}
               enter="transform transition ease-in-out duration-500 sm:duration-700"
-              enterFrom="-translate-x-full"
-              enterTo="-translate-x-0"
+              enterFrom="-tranzinc-x-full"
+              enterTo="-tranzinc-x-0"
               leave="transform transition ease-in-out duration-500 sm:duration-700"
-              leaveFrom="-translate-x-0"
-              leaveTo="-translate-x-full"
+              leaveFrom="-tranzinc-x-0"
+              leaveTo="-tranzinc-x-full"
             >
               <div className="relative w-screen max-w-md">
                 <div className="h-full flex flex-col py-6 dark:bg-[#0F1215] shadow-xl overflow-y-scroll">

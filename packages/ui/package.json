@@ -11,19 +11,25 @@
     "@germla/tsconfig": "workspace:*",
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.0",
-    "eslint": "^7.32.0",
+    "eslint": "^8.40.0",
     "next": "^13.4.2",
     "react": "^17.0.2",
     "typescript": "^4.9.5"
   },
   "dependencies": {
     "@heroicons/react": "^2.0.18",
+    "@germla/config": "workspace:*",
     "@ladle/react": "^2.12.3",
+    "@radix-ui/react-avatar": "^1.0.2",
+    "@radix-ui/react-slot": "^1.0.1",
     "@tiptap/pm": "^2.0.3",
     "@tiptap/react": "^2.0.3",
     "@tiptap/starter-kit": "^2.0.3",
+    "class-variance-authority": "^0.6.0",
     "clsx": "^1.2.1",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "tailwind-merge": "^1.12.0",
+    "tailwindcss-animate": "^1.0.5"
   }
 }

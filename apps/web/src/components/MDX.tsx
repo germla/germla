@@ -1,8 +1,7 @@
-import { InformationCircleIcon } from "@heroicons/react/24/outline"
 import clsx from "clsx";
 
 // TODO: Modify to differentiate from being detected
-export { Alert } from "@germla/ui/components/Alert";
+export { Alert } from "@germla/ui";
 export function Row({ children }) {
     return (
         <div className="grid grid-cols-1 items-start gap-x-16 gap-y-10 xl:max-w-none xl:grid-cols-2">

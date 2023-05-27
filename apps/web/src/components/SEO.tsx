@@ -1,6 +1,6 @@
 import Head from "next/head";
 
-const DOMAIN = "https://www.germla.com";
+const DOMAIN = "https://www.germla.space";
 const DEFAULT_OG_IMAGE =
   "https://storage.googleapis.com/brandflow-bucket/personal/blog/portfolio-og.jpg";
 

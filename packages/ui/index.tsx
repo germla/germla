@@ -1,8 +1,6 @@
-import * as React from "react";
-
-// export * from "./components/Alert";
+export * from "./src/components/Alert";
 // export * from "./components/Button";
-// export * from "./components/Sidebar";
+export * from "./src/components/Sidebar";
 // export * from "./components/Checkbox";
 // export * from "./components/Dialog";
 // export * from "./components/Divider";

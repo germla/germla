@@ -12,7 +12,7 @@ export const Hero = () => {
                 Manage your business with ease
               </p>
             </div>
-            <h1 className="mx-auto max-w-4xl font-display text-3xl font-medium tracking-tight dark:text-zinc-100 text-slate-900 sm:text-5xl">
+            <h1 className="mx-auto max-w-4xl font-display text-3xl font-medium tracking-tight dark:text-zinc-100 text-zinc-900 sm:text-5xl">
               Customer experience{" "}
               <span className="relative whitespace-nowrap text-indigo-600">
                 <svg
@@ -27,7 +27,7 @@ export const Hero = () => {
               </span>{" "}
               for businesses.
             </h1>
-            <p className="mx-auto mt-6 max-w-2xl text-lg tracking-tight dark:text-slate-200 text-slate-700">
+            <p className="mx-auto mt-6 max-w-2xl text-lg tracking-tight dark:text-zinc-200 text-zinc-700">
               Collect feedback and turn your customers into your biggest fans.
               We are here to help you grow your business. Get started today!
             </p>
@@ -35,14 +35,14 @@ export const Hero = () => {
           <div className="flex gap-2 items-center">
             <Link
               href="/"
-              className="group inline-flex items-center justify-center rounded-full transition-colors py-2 px-4 text-sm font-semibold focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 bg-indigo-600 text-white hover:bg-indigo-700 hover:text-slate-100 active:bg-slate-800 active:text-slate-300 focus-visible:outline-slate-900"
+              className="group inline-flex items-center justify-center rounded-full transition-colors py-2 px-4 text-sm font-semibold focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 bg-indigo-600 text-white hover:bg-indigo-700 hover:text-zinc-100 active:bg-zinc-800 active:text-zinc-300 focus-visible:outline-zinc-900"
             >
               Get started
             </Link>
             <Link
               href={"https://feedback.resultism.com"}
               aria-label=""
-              className="group inline-flex ring-1 items-center justify-center rounded-full py-2 px-4 text-sm focus:outline-none ring-slate-200 text-slate-700 hover:text-slate-900 dark:text-white hover:ring-slate-300 dark:hover:ring-slate-200 active:bg-slate-100 active:text-slate-600 focus-visible:outline-blue-600 focus-visible:ring-slate-300"
+              className="group inline-flex ring-1 items-center justify-center rounded-full py-2 px-4 text-sm focus:outline-none ring-zinc-200 text-zinc-700 hover:text-zinc-900 dark:text-white hover:ring-zinc-300 dark:hover:ring-zinc-200 active:bg-zinc-100 active:text-zinc-600 focus-visible:outline-blue-600 focus-visible:ring-zinc-300"
             >
               Demo
             </Link>

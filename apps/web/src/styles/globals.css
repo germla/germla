@@ -9,7 +9,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Asap+Condensed&display=swap');
 
 body {
-  @apply bg-slate-50 text-slate-900;
+  @apply bg-zinc-50 text-zinc-900;
 }
 
 ::selection {
@@ -83,7 +83,7 @@ html {
 }
 
 input:checked~.dot {
-  transform: translateX(100%);
+  transform: tranzincX(100%);
   /* background-color: #132b50; */
 }
 
@@ -98,7 +98,7 @@ input:checked~.dot {
 }
 
 .pricing-gradient {
-  transform: translateZ(0);
+  transform: tranzincZ(0);
 }
 
 .pricing-heading {

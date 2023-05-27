@@ -3,16 +3,16 @@ type Pricing = "monthly" | "annually";
 export default function Pricing({ type }: { type: Pricing }) {
   return (
     <div className="space-y-8 sm:gap-6 lg:grid lg:grid-cols-3 lg:space-y-0 xl:gap-6">
-      <div className="mx-auto flex w-80 max-w-lg flex-col rounded-lg border border-gray-100 bg-gradient-to-r from-slate-800/50 to-slate-800/20 p-6 text-left text-gray-900 shadow dark:border-gray-600 dark:text-white xl:p-8">
+      <div className="mx-auto flex w-80 max-w-lg flex-col rounded-lg border border-gray-100 bg-gradient-to-r from-zinc-800/50 to-zinc-800/20 p-6 text-left text-gray-900 shadow dark:border-gray-600 dark:text-white xl:p-8">
         <h3 className="mb-2.5 justify-start text-2xl font-semibold">Starter</h3>
         <div className="mb-4">
           <div className="inline-flex items-baseline justify-center">
             <span className="font-primary mr-2 text-5xl font-extrabold">$0</span>
           </div>
-          <div className="text-sm text-slate-400">/month - billed {type}</div>
+          <div className="text-sm text-zinc-400">/month - billed {type}</div>
         </div>
-        <span className="mb-3 text-sm font-medium text-slate-200">For trying out the software</span>
-        <ul role="list" className="mb-12 flex-grow space-y-3 text-sm text-slate-400">
+        <span className="mb-3 text-sm font-medium text-zinc-200">For trying out the software</span>
+        <ul role="list" className="mb-12 flex-grow space-y-3 text-sm text-zinc-400">
           <li className="flex items-center">
             <svg
               className="mr-3 h-3 w-3 flex-shrink-0 fill-current text-green-300"
@@ -60,7 +60,7 @@ export default function Pricing({ type }: { type: Pricing }) {
           </li>
         </ul>
       </div>
-      <div className="mx-auto flex w-80 max-w-lg flex-col rounded-lg border border-gray-100 bg-gradient-to-r from-slate-800/50 to-slate-800/20 p-6 text-left text-gray-900 shadow dark:border-gray-600 dark:text-white xl:p-8">
+      <div className="mx-auto flex w-80 max-w-lg flex-col rounded-lg border border-gray-100 bg-gradient-to-r from-zinc-800/50 to-zinc-800/20 p-6 text-left text-gray-900 shadow dark:border-gray-600 dark:text-white xl:p-8">
         <h3 className="mb-2.5 justify-start text-2xl font-semibold">Plus</h3>
         <div className="mb-4">
           <div className="inline-flex items-baseline justify-center">
@@ -68,12 +68,12 @@ export default function Pricing({ type }: { type: Pricing }) {
               ${type == "monthly" ? "12" : "10"}
             </span>
           </div>
-          <div className="text-sm text-slate-400">/month - billed {type}</div>
+          <div className="text-sm text-zinc-400">/month - billed {type}</div>
         </div>
-        <span className="mb-3 text-sm font-medium text-slate-200">
+        <span className="mb-3 text-sm font-medium text-zinc-200">
           For individual entrepreneurs
         </span>
-        <ul role="list" className="mb-12 flex-grow space-y-3 text-sm text-slate-400">
+        <ul role="list" className="mb-12 flex-grow space-y-3 text-sm text-zinc-400">
           <li className="flex items-center">
             <svg
               className="mr-3 h-3 w-3 flex-shrink-0 fill-current text-green-300"
@@ -139,7 +139,7 @@ export default function Pricing({ type }: { type: Pricing }) {
           </li>
         </ul>
       </div>
-      <div className="mx-auto flex w-80 max-w-lg flex-col rounded-lg border border-gray-100 bg-gradient-to-r from-slate-800/50 to-slate-800/20 p-6 text-left text-gray-900 shadow dark:border-gray-600 dark:text-white xl:p-8">
+      <div className="mx-auto flex w-80 max-w-lg flex-col rounded-lg border border-gray-100 bg-gradient-to-r from-zinc-800/50 to-zinc-800/20 p-6 text-left text-gray-900 shadow dark:border-gray-600 dark:text-white xl:p-8">
         <h3 className="mb-2.5 justify-start text-2xl font-semibold">Pro</h3>
         <div className="mb-4">
           <div className="inline-flex items-baseline justify-center">
@@ -147,10 +147,10 @@ export default function Pricing({ type }: { type: Pricing }) {
               ${type === "monthly" ? "125" : "110"}
             </span>
           </div>
-          <div className="text-sm text-slate-400">/month - billed {type}</div>
+          <div className="text-sm text-zinc-400">/month - billed {type}</div>
         </div>
-        <span className="mb-3 text-sm font-medium text-slate-200">For scaling businesses</span>
-        <ul role="list" className="mb-12 flex-grow space-y-3 text-sm text-slate-400">
+        <span className="mb-3 text-sm font-medium text-zinc-200">For scaling businesses</span>
+        <ul role="list" className="mb-12 flex-grow space-y-3 text-sm text-zinc-400">
           <li className="flex items-center">
             <svg
               className="mr-3 h-3 w-3 flex-shrink-0 fill-current text-green-300"

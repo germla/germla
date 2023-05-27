@@ -15,6 +15,7 @@
     "@next-auth/prisma-adapter": "^1.0.6",
     "@t3-oss/env-nextjs": "^0.3.1",
     "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.0",
     "next": "^13.4.1",
     "next-auth": "^4.22.1",
     "react": "18.2.0",
@@ -25,6 +26,7 @@
     "@germla/config": "workspace:*",
     "@germla/tsconfig": "workspace:*",
     "@types/bcryptjs": "^2.4.2",
+    "@types/jsonwebtoken": "^9.0.2",
     "eslint": "^8.40.0",
     "typescript": "^5.0.4"
   }

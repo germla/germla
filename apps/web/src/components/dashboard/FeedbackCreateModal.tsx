@@ -16,13 +16,13 @@ export default function FeedbackCreateModal({ workspace }: { workspace: Workspac
     const onFormSubmit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         if (!titleRef.current?.value) return toast.error("Please enter a title", {
-            className: "bg-white dark:bg-slate-900 z-50 dark:text-white",
+            className: "bg-white dark:bg-zinc-900 z-50 dark:text-white",
         });
         if (!selectedBoard) return toast.error("Please select a board", {
-            className: "bg-white dark:bg-slate-900 z-50 dark:text-white",
+            className: "bg-white dark:bg-zinc-900 z-50 dark:text-white",
         });
         if (!textareaRef.current?.value) return toast.error("Please enter a description", {
-            className: "bg-white dark:bg-slate-900 z-50 dark:text-white",
+            className: "bg-white dark:bg-zinc-900 z-50 dark:text-white",
         });
         toast.promise(createFeedback(workspace.id, selectedBoard?.id, titleRef.current?.value, textareaRef.current?.value, "manual"), {
             loading: "Creating feedback...",
@@ -35,7 +35,7 @@ export default function FeedbackCreateModal({ workspace }: { workspace: Workspac
                 return "Failed to create feedback";
             }
         }, {
-            className: "bg-white dark:bg-slate-900 z-50 dark:text-white",
+            className: "bg-white dark:bg-zinc-900 z-50 dark:text-white",
         })
     };
     const onFeedbackChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
@@ -76,7 +76,7 @@ export default function FeedbackCreateModal({ workspace }: { workspace: Workspac
                             leaveFrom="opacity-100 scale-100"
                             leaveTo="opacity-0 scale-95"
                         >
-                            <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-950  p-6 text-left align-middle shadow-xl transition-all">
+                            <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-950  p-6 text-left align-middle shadow-xl transition-all">
                                 <Dialog.Title
                                     as="h3"
                                     className="text-lg text-center dark:text-white font-medium leading-6 text-gray-900"
@@ -88,7 +88,7 @@ export default function FeedbackCreateModal({ workspace }: { workspace: Workspac
                                         <div>
                                             <label
                                                 htmlFor="title"
-                                                className="block mb-2 text-sm font-medium text-slate-500 dark:text-white"                                            >
+                                                className="block mb-2 text-sm font-medium text-zinc-500 dark:text-white"                                            >
                                                 Title
                                             </label>
                                             <div className="mt-1">
@@ -97,19 +97,19 @@ export default function FeedbackCreateModal({ workspace }: { workspace: Workspac
                                                     name="title"
                                                     id="title"
                                                     ref={titleRef}
-                                                    className="border text-gray-900 text-sm rounded-lg focus:outline-none dark:border-slate-600 dark:focus:border-indigo-500 focus:border-indigo-500 block w-full p-2.5 dark:bg-slate-800 bg-white border-slate-200 placeholder-slate-400 dark:text-white focus:ring-indigo-500"
+                                                    className="border text-gray-900 text-sm rounded-lg focus:outline-none dark:border-zinc-600 dark:focus:border-indigo-500 focus:border-indigo-500 block w-full p-2.5 dark:bg-zinc-800 bg-white border-zinc-200 placeholder-zinc-400 dark:text-white focus:ring-indigo-500"
                                                 />
                                             </div>
                                         </div>
                                         <div>
                                             <label
                                                 htmlFor="board"
-                                                className="block mb-2 text-sm font-medium text-slate-500 dark:text-white"                                            >
+                                                className="block mb-2 text-sm font-medium text-zinc-500 dark:text-white"                                            >
                                                 Board
                                             </label>
                                             <div className="mt-1 relative">
                                                 <Listbox name="board" value={selectedBoard} onChange={setSelectedBoard}>
-                                                    <Listbox.Button className="relative w-full border text-gray-900 text-sm rounded-lg focus:outline-none dark:border-slate-600 dark:focus:border-indigo-500 focus:border-indigo-500 block p-2.5 dark:bg-slate-800 bg-white border-slate-200 placeholder-slate-400 dark:text-white focus:ring-indigo-500">
+                                                    <Listbox.Button className="relative w-full border text-gray-900 text-sm rounded-lg focus:outline-none dark:border-zinc-600 dark:focus:border-indigo-500 focus:border-indigo-500 block p-2.5 dark:bg-zinc-800 bg-white border-zinc-200 placeholder-zinc-400 dark:text-white focus:ring-indigo-500">
                                                         <span className="block text-start">
                                                             {selectedBoard?.name || "Select a board"}
                                                         </span>
@@ -137,7 +137,7 @@ export default function FeedbackCreateModal({ workspace }: { workspace: Workspac
                                                         leaveFrom="opacity-100"
                                                         leaveTo="opacity-0"
                                                     >
-                                                        <Listbox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white dark:bg-slate-800 py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+                                                        <Listbox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white dark:bg-zinc-800 py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
                                                             {Array.isArray(boards) && boards.length !== 0 && boards !== null ? (
                                                                 <div>
                                                                     {boards.map((board) => (
@@ -182,7 +182,7 @@ export default function FeedbackCreateModal({ workspace }: { workspace: Workspac
                                         <div>
                                             <label
                                                 htmlFor="title"
-                                                className="block mb-2 text-sm font-medium text-slate-500 dark:text-white"                                            >
+                                                className="block mb-2 text-sm font-medium text-zinc-500 dark:text-white"                                            >
                                                 Feedback
                                             </label>
                                             <div className="mt-1">
@@ -194,7 +194,7 @@ export default function FeedbackCreateModal({ workspace }: { workspace: Workspac
                                                     style={{
                                                         maxHeight: "460px"
                                                     }}
-                                                    className="border text-gray-900 text-sm dark:border-slate-600 dark:focus:border-indigo-500 rounded-lg focus:outline-none focus:border-indigo-500 block w-full p-2.5 dark:bg-slate-800 bg-white border-slate-200 placeholder-slate-400 dark:text-white focus:ring-indigo-500"
+                                                    className="border text-gray-900 text-sm dark:border-zinc-600 dark:focus:border-indigo-500 rounded-lg focus:outline-none focus:border-indigo-500 block w-full p-2.5 dark:bg-zinc-800 bg-white border-zinc-200 placeholder-zinc-400 dark:text-white focus:ring-indigo-500"
                                                 />
                                             </div>
                                         </div>

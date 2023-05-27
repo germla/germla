@@ -9,7 +9,7 @@ import { Turnstile } from '@marsidev/react-turnstile'
 import { useRef, useState } from "react";
 import toast from "react-hot-toast";
 import Seo from "@/components/SEO";
-import { signUp } from "@/lib/user";
+import { api } from "@/lib/api";
 
 const SignUp: NextPage = () => {
   const router = useRouter();
@@ -27,6 +27,7 @@ const SignUp: NextPage = () => {
       password: "",
     },
   });
+  const mutation = api.user.createUser.useMutation();
 
   const onSubmit = (data: {
     name: string;
@@ -40,18 +41,15 @@ const SignUp: NextPage = () => {
       setSignUpButtonDisabled(false)
       return toast.error('Please complete the captcha')
     }
-    toast.promise(signUp(data.name, data.email, data.password, token.toString()), {
-      success: () => {
-        setSignUpButtonDisabled(false)
-        return 'Successfully signed up'
-      },
-      error: (e: any) => {
-        setSignUpButtonDisabled(false)
-        return e.message
-      },
-      loading: 'Creating an account..'
-    }).then(() => {
-      router.push('/app')
+    mutation.mutate(data, {
+        onSuccess: () => {
+            toast.success('Account created successfully')
+            router.push('/login')
+        },
+        onError: (error) => {
+            setSignUpButtonDisabled(false)
+            toast.error(error.message)
+        }
     })
   };
   return (
@@ -84,15 +82,15 @@ const SignUp: NextPage = () => {
               <button
                 type="button"
                 onClick={() => signIn("google")}
-                className="py-2 px-5 mr-2 w-full mb-2 text-sm font-semibold focus:outline-none rounded-lg border focus:z-10 text-slate-800 transition-colors duration-200 border-slate-300 focus:ring-2 focus:ring-slate-200"
+                className="py-2 px-5 mr-2 w-full mb-2 text-sm bg-zinc-100 hover:bg-white font-semibold focus:outline-none rounded-lg border text-zinc-800 transition-colors duration-200 border-zinc-300 focus:ring-2 focus:ring-zinc-200"
               >
                 <FcGoogle className="inline-block w-6 h-6 mr-2" />
                 Sign up with Google
               </button>
               <div className="relative flex -mt-1 items-center">
-                <div className="flex-grow border-t border-slate-400"></div>
-                <span className="flex-shrink mx-4 italic text-slate-500">OR</span>
-                <div className="flex-grow border-t border-slate-400"></div>
+                <div className="flex-grow border-t border-zinc-400"></div>
+                <span className="flex-shrink mx-4 italic text-zinc-500">OR</span>
+                <div className="flex-grow border-t border-zinc-400"></div>
               </div>
             </div>
             <form
@@ -103,7 +101,7 @@ const SignUp: NextPage = () => {
               <div>
                 <label
                   htmlFor="name"
-                  className="block mb-2 text-sm font-medium text-slate-500"
+                  className="block mb-2 text-sm font-medium text-zinc-500"
                 >
                   Name
                   <span className="text-red-500">*</span>
@@ -122,7 +120,7 @@ const SignUp: NextPage = () => {
                       message: "Name must be at most 20 characters",
                     },
                   })}
-                  className="border mt-1 text-slate-600 hover:border-slate-400 duration-200 transition-colors text-sm rounded-lg focus:outline-none focus:border-indigo-500 block w-full p-2.5 bg-slate-100 border-slate-300 focus:ring-indigo-500"
+                  className="border mt-1 text-zinc-600 hover:border-zinc-400 duration-200 transition-colors text-sm rounded-lg focus:outline-none focus:border-indigo-500 block w-full p-2.5 bg-zinc-100 border-zinc-300 focus:ring-indigo-500"
                 />
                 <p className="text-red-500 mt-1 text-xs first-letter:uppercase">
                   {errors.name?.message}
@@ -131,7 +129,7 @@ const SignUp: NextPage = () => {
               <div>
                 <label
                   htmlFor="email"
-                  className="block mb-2 text-sm font-medium text-slate-500"
+                  className="block mb-2 text-sm font-medium text-zinc-500"
                 >
                   Email
                   <span className="text-red-500">*</span>
@@ -146,7 +144,7 @@ const SignUp: NextPage = () => {
                       message: "Invalid email address",
                     },
                   })}
-                  className="border mt-1 text-slate-600 hover:border-slate-400 duration-200 transition-colors text-sm rounded-lg focus:outline-none focus:border-indigo-500 block w-full p-2.5 bg-slate-100 border-slate-300 focus:ring-indigo-500"
+                  className="border mt-1 text-zinc-600 hover:border-zinc-400 duration-200 transition-colors text-sm rounded-lg focus:outline-none focus:border-indigo-500 block w-full p-2.5 bg-zinc-100 border-zinc-300 focus:ring-indigo-500"
                 />
                 <p className="text-red-500 mt-1 text-xs first-letter:uppercase">
                   {errors.email?.message}
@@ -155,7 +153,7 @@ const SignUp: NextPage = () => {
               <div>
                 <label
                   htmlFor="password"
-                  className="block mb-2 text-sm font-medium text-slate-500"
+                  className="block mb-2 text-sm font-medium text-zinc-500"
                 >
                   Password
                   <span className="text-red-500">*</span>
@@ -178,7 +176,7 @@ const SignUp: NextPage = () => {
                       message: "Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character",
                     },
                   })}
-                  className="border mt-1 text-slate-600 hover:border-slate-400 duration-200 transition-colors text-sm rounded-lg focus:outline-none focus:border-indigo-500 block w-full p-2.5 bg-slate-100 border-slate-300 focus:ring-indigo-500"
+                  className="border mt-1 text-zinc-600 hover:border-zinc-400 duration-200 transition-colors text-sm rounded-lg focus:outline-none focus:border-indigo-500 block w-full p-2.5 bg-zinc-100 border-zinc-300 focus:ring-indigo-500"
                 />
                 <p className="text-red-500 mt-1 text-xs first-letter:uppercase">
                   {errors.password?.message}

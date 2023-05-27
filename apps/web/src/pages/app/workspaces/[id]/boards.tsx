@@ -36,7 +36,7 @@ export default function WorkspaceBoards({ workspace }: { workspace: Workspace })
                     <div className="-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8">
                         <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
                             <div className="overflow-hidden">
-                                <table className="min-w-full divide-y dark:divide-slate-700 divide-slate-300">
+                                <table className="min-w-full divide-y dark:divide-zinc-700 divide-zinc-300">
                                     <thead>
                                         <tr>
                                             <th scope="col" className="py-3.5 pl-4 pr-3 dark:text-white text-left text-sm font-semibold text-gray-900 sm:pl-6">
@@ -56,20 +56,20 @@ export default function WorkspaceBoards({ workspace }: { workspace: Workspace })
                                             </th>
                                         </tr>
                                     </thead>
-                                    <tbody className="divide-y dark:divide-slate-800 divide-slate-200">
+                                    <tbody className="divide-y dark:divide-zinc-800 divide-zinc-200">
                                         {boards?.map((board) => (
                                             <tr key={board.id}>
                                                 <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium dark:text-white text-gray-900 sm:pl-6">
                                                     {board.name}
                                                 </td>
-                                                <td className="whitespace-nowrap px-3 py-4 text-sm dark:text-slate-300 text-gray-500 first-letter:uppercase">{board.visibility.toLowerCase()}</td>
-                                                <td className="whitespace-nowrap px-3 py-4 text-sm dark:text-slate-300 text-gray-500">
+                                                <td className="whitespace-nowrap px-3 py-4 text-sm dark:text-zinc-300 text-gray-500 first-letter:uppercase">{board.visibility.toLowerCase()}</td>
+                                                <td className="whitespace-nowrap px-3 py-4 text-sm dark:text-zinc-300 text-gray-500">
                                                     {timeFormatter.format(
                                                         new Date(board.createdAt).getDay() - new Date().getDay(),
                                                         "day"
                                                     )}
                                                 </td>
-                                                <td className="whitespace-nowrap px-3 py-4 text-sm dark:text-slate-300 text-gray-500">
+                                                <td className="whitespace-nowrap px-3 py-4 text-sm dark:text-zinc-300 text-gray-500">
                                                     {board.createdBy.name}
                                                 </td>
                                             </tr>

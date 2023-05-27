@@ -23,7 +23,7 @@ export default function WorkspaceSettings(workspace: Workspace) {
                     <div className="relative inline-flex">
                         <button style={{
                             padding: ".5rem .75rem",
-                        }} className="bg-white inline-flex border-slate-200 rounded shadow-sm transition-colors duration-100 items-center justify-center hover:border-slate-400  border-1 text-slate-500 hover:text-slate-600">
+                        }} className="bg-white inline-flex border-zinc-200 rounded shadow-sm transition-colors duration-100 items-center justify-center hover:border-zinc-400  border-1 text-zinc-500 hover:text-zinc-600">
                             <span className="sr-only">Filter</span>
                             <wbr />
                             <svg className="w-4 h-4 fill-current" viewBox="0 0 16 16"><path d="M9 15H7a1 1 0 010-2h2a1 1 0 010 2zM11 11H5a1 1 0 010-2h6a1 1 0 010 2zM13 7H3a1 1 0 010-2h10a1 1 0 010 2zM15 3H1a1 1 0 010-2h14a1 1 0 010 2z"></path></svg>

@@ -16,10 +16,10 @@ export default function BoardCreateModal({ workspace }: { workspace: Workspace }
     const onFormSubmit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         if (!selectedVisibility) return toast.error("Please select a visibility", {
-            className: "bg-white dark:bg-slate-900 z-50 dark:text-white",
+            className: "bg-white dark:bg-zinc-900 z-50 dark:text-white",
         });
         if (!nameRef.current?.value) return toast.error("Please enter a name for the board.", {
-            className: "bg-white dark:bg-slate-900 z-50 dark:text-white",
+            className: "bg-white dark:bg-zinc-900 z-50 dark:text-white",
         });
         toast.promise(createBoard(workspace.id, nameRef.current?.value, selectedVisibility.value), {
             loading: "Creating board...",
@@ -32,7 +32,7 @@ export default function BoardCreateModal({ workspace }: { workspace: Workspace }
                 return "Failed to create board";
             }
         }, {
-            className: "bg-white dark:bg-slate-900 z-50 dark:text-white",
+            className: "bg-white dark:bg-zinc-900 z-50 dark:text-white",
         })
     };
     return (
@@ -61,7 +61,7 @@ export default function BoardCreateModal({ workspace }: { workspace: Workspace }
                             leaveFrom="opacity-100 scale-100"
                             leaveTo="opacity-0 scale-95"
                         >
-                            <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-950  p-6 text-left align-middle shadow-xl transition-all">
+                            <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-950  p-6 text-left align-middle shadow-xl transition-all">
                                 <Dialog.Title
                                     as="h3"
                                     className="text-lg text-center dark:text-white font-medium leading-6 text-gray-900"
@@ -73,7 +73,7 @@ export default function BoardCreateModal({ workspace }: { workspace: Workspace }
                                         <div>
                                             <label
                                                 htmlFor="name"
-                                                className="block mb-2 text-sm font-medium text-slate-500 dark:text-white"                                            >
+                                                className="block mb-2 text-sm font-medium text-zinc-500 dark:text-white"                                            >
                                                 Name
                                             </label>
                                             <div className="mt-1">
@@ -82,19 +82,19 @@ export default function BoardCreateModal({ workspace }: { workspace: Workspace }
                                                     name="name"
                                                     id="name"
                                                     ref={nameRef}
-                                                    className="border text-gray-900 text-sm rounded-lg focus:outline-none dark:border-slate-600 dark:focus:border-indigo-500 focus:border-indigo-500 block w-full p-2.5 dark:bg-slate-800 bg-white border-slate-200 placeholder-slate-400 dark:text-white focus:ring-indigo-500"
+                                                    className="border text-gray-900 text-sm rounded-lg focus:outline-none dark:border-zinc-600 dark:focus:border-indigo-500 focus:border-indigo-500 block w-full p-2.5 dark:bg-zinc-800 bg-white border-zinc-200 placeholder-zinc-400 dark:text-white focus:ring-indigo-500"
                                                 />
                                             </div>
                                         </div>
                                         <div>
                                             <label
                                                 htmlFor="visibility"
-                                                className="block mb-2 text-sm font-medium text-slate-500 dark:text-white"                                            >
+                                                className="block mb-2 text-sm font-medium text-zinc-500 dark:text-white"                                            >
                                                 Visibility
                                             </label>
                                             <div className="mt-1 relative">
                                                 <Listbox name="board" value={selectedVisibility} onChange={setSelectedVisibility}>
-                                                    <Listbox.Button className="relative w-full border text-gray-900 text-sm rounded-lg focus:outline-none dark:border-slate-600 dark:focus:border-indigo-500 focus:border-indigo-500 block p-2.5 dark:bg-slate-800 bg-white border-slate-200 placeholder-slate-400 dark:text-white focus:ring-indigo-500">
+                                                    <Listbox.Button className="relative w-full border text-gray-900 text-sm rounded-lg focus:outline-none dark:border-zinc-600 dark:focus:border-indigo-500 focus:border-indigo-500 block p-2.5 dark:bg-zinc-800 bg-white border-zinc-200 placeholder-zinc-400 dark:text-white focus:ring-indigo-500">
                                                         <span className="block text-start">
                                                             {selectedVisibility?.name || "Select a visibility type"}
                                                         </span>
@@ -122,7 +122,7 @@ export default function BoardCreateModal({ workspace }: { workspace: Workspace }
                                                         leaveFrom="opacity-100"
                                                         leaveTo="opacity-0"
                                                     >
-                                                        <Listbox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white dark:bg-slate-800 py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+                                                        <Listbox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white dark:bg-zinc-800 py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
                                                             {visibilities.map((visibility) => (
                                                                 <Listbox.Option
                                                                     key={visibility.name}

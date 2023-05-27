@@ -1,9 +1,27 @@
-import { isValidRequest } from "discord-verify/node";
 import type { NextApiRequest, NextApiResponse } from "next";
-import { env } from "@/env.mjs";
+import { APIMessageComponentInteraction, APIInteractionResponse } from "discord-api-types/v10";
+import { createResponse, withDiscordInteraction } from "@/lib/discord";
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {    
-    if (!isValidRequest(req, env.DISCORD_PUBLIC_TOKEN)) {
-        return res.status(401).json({ error: "Unauthorized" });
-    }
+const handler = async (
+    _req: NextApiRequest,
+    res: NextApiResponse<APIInteractionResponse>,
+    interaction: APIMessageComponentInteraction
+) => {
+    console.log(interaction)
+    return res.status(200).json(createResponse({
+        embeds: [
+            {
+                title: "Hello World!",
+                // description: interaction.message.content
+            }
+        ]
+    }))
+}
+
+export default withDiscordInteraction(handler)
+
+export const config = {
+    api: {
+        bodyParser: false,
+    },
 }

@@ -10,10 +10,13 @@ import { TRPCError, initTRPC } from "@trpc/server";
 import { type CreateNextContextOptions } from "@trpc/server/adapters/next";
 import superjson from "superjson";
 import { ZodError } from "zod";
-import { getServerSession, type Session } from "@germla/auth";
+import { getServerUser, type Session, type User } from "@germla/auth";
 import prisma from "@germla/database"
 import '@germla/database/client'
 import { OpenApiMeta } from 'trpc-openapi';
+import { z } from "zod";
+import { validateCloudflareToken } from "./util/cf";
+import type { NextApiRequest } from "next";
 /**
  * 1. CONTEXT
  *
@@ -24,7 +27,7 @@ import { OpenApiMeta } from 'trpc-openapi';
  *
  */
 type CreateContextOptions = {
-  session: Session | null;
+  user: Omit<User, "id"> | null;
 };
 
 /**
@@ -38,10 +41,22 @@ type CreateContextOptions = {
  */
 const createInnerTRPCContext = (opts: CreateContextOptions) => {
   return {
-    session: opts.session,
+    session: opts.user,
     prisma,
   };
 };
+
+export const getUserFromReq = async (req: NextApiRequest) => {
+  const { authorization } = req.headers;
+  if (!authorization) return null;
+  const token = authorization.split(" ")[1];
+  return {
+    email: token,
+    image: token,
+    name: token,
+  };
+}
+
 
 /**
  * This is the actual context you'll use in your router. It will be used to
@@ -52,10 +67,10 @@ export const createTRPCContext = async (opts: CreateNextContextOptions) => {
   const { req, res } = opts;
 
   // Get the session from the server using the unstable_getServerSession wrapper function
-  const session = await getServerSession({ req, res });
+  const user = await getUserFromReq(req) || (await getServerUser({ req, res }));
 
   return createInnerTRPCContext({
-    session,
+    user,
   });
 };
 
@@ -105,16 +120,44 @@ export const publicProcedure = t.procedure;
  * Reusable middleware that enforces users are logged in before running the
  * procedure
  */
-const enforceUserIsAuthed = t.middleware(({ ctx, next }) => {
-  if (!ctx.session?.user) {
+const enforceUserIsAuthed = t.middleware(({ ctx, next, input }) => {
+  if (!ctx.session) {
     throw new TRPCError({ code: "UNAUTHORIZED" });
   }
   return next({
-    ctx: {
-      session: { ...ctx.session, user: ctx.session.user },
-    },
+    ctx
   });
 });
+
+
+const validateCaptchaInput = z.object({ captchaToken: z.string() })
+/**
+ * Middleware to validate Cloudflare captcha tokens
+ */
+const validateCaptcha = t.middleware(({ next, rawInput }) => {
+  const result = validateCaptchaInput.safeParse(rawInput)
+  if (!result.success) {
+    throw new TRPCError({
+      code: "BAD_REQUEST",
+      message: "Invalid captcha token",
+    });
+  }
+
+  const { captchaToken } = result.data;
+
+  const valid = validateCloudflareToken(captchaToken);
+
+  if (!valid) {
+    throw new TRPCError({
+      code: "BAD_REQUEST",
+      message: "Invalid captcha token",
+    });
+  };
+
+  return next();
+})
+
+export const captchaProcedure = t.procedure.use(validateCaptcha);
 
 /**
  * Protected (authed) procedure
