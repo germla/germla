@@ -23,7 +23,6 @@
     },
     "devDependencies": {
         "@germla/config": "workspace:*",
-        "@germla/tsconfig": "workspace:*",
         "@types/nodemailer": "^6.4.7",
         "eslint": "^8.40.0",
         "next": "^13.4.3",

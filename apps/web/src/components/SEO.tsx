@@ -1,17 +1,15 @@
 import Head from "next/head";
 
 const DOMAIN = "https://www.germla.space";
-const DEFAULT_OG_IMAGE =
-  "https://storage.googleapis.com/brandflow-bucket/personal/blog/portfolio-og.jpg";
 
 export default function Seo({
   title = "Germla",
-  description = "Jim Raptis works on the intersection between user interface design and frontend development. He's passionate about design, coding, SaaS, and indie hacking.",
+  description = "",
   siteName = "Germla",
   canonical = DOMAIN,
-  ogImage = DEFAULT_OG_IMAGE,
+  // ogImage = DEFAULT_OG_IMAGE,
   ogType = "website",
-  twitterHandle = "@d__raptis",
+  twitter = "",
 }) {
   return (
     <Head>
@@ -24,11 +22,11 @@ export default function Seo({
       <meta key="og_site_name" property="og:site_name" content={siteName} />
       <meta key="og_url" property="og:url" content={canonical ?? DOMAIN} />
       <meta key="og_site_name" property="og:site_name" content={siteName} />
-      <meta
+      {/* <meta
         key="og_image"
         property="og:image"
         content={ogImage ?? DEFAULT_OG_IMAGE}
-      />
+      /> */}
       <meta
         key="og_image:alt"
         property="og:image:alt"
@@ -44,7 +42,7 @@ export default function Seo({
         name="twitter:card"
         content="summary_large_image"
       />
-      <meta 
+      {/* <meta 
         key="twitter:site" 
         name="twitter:site" 
         content={twitterHandle} 
@@ -53,7 +51,7 @@ export default function Seo({
         key="twitter:creator"
         name="twitter:creator"
         content={twitterHandle}
-      />
+      /> */}
       <meta 
         key="twitter:title" 
         property="twitter:title" 
@@ -66,7 +64,6 @@ export default function Seo({
       />
 
       <link rel="canonical" href={canonical ?? DOMAIN} />
-
       <link rel="shortcut icon" href="/favicon.ico" />
     </Head>
   );

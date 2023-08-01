@@ -4,7 +4,7 @@ import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import { verifyPassword } from "./hashing";
 import prisma from "@germla/database";
 import type { NextAuthOptions } from "next-auth";
-import { env } from '../env.mjs'
+import { env } from '../env.ts/index.js'
 
 /**
  * Configuration Options for NextAuth.js 

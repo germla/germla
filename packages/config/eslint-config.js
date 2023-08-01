@@ -6,6 +6,7 @@ module.exports = {
   parserOptions: {
     tsconfigRootDir: __dirname,
     project: ["./apps/*/tsconfig.json", "./packages/*/tsconfig.json"],
+    // presets: [require.resolve('next/babel')],
   },
   settings: {
     next: {

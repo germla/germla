@@ -7,33 +7,12 @@ export default async function handler(
     res: NextApiResponse
 ) {
     const sixHoursAgo = new Date(Date.now() - 6 * 60 * 60 * 1000); // Calculate the timestamp 6 hours ago
+    // Find the users
     const users = await prisma.user.findMany({
         where: {
-            OR: [
-                {
-                    verificationDates: {
-                        has: true,
-                        some: {
-                            date: {
-                                lt: new Date(Date.now() - 6 * 60 * 60 * 1000),
-                            },
-                        },
-                    },
-                },
-                {
-                    passwordResetDates: {
-                        has: true,
-                        some: {
-                            date: {
-                                lt: new Date(Date.now() - 6 * 60 * 60 * 1000),
-                            },
-                        },
-                    },
-                },
-            ],
+            passwordResetAttempts: {}
         }
-    })
-
+    })        
     const maxBatchSize = env.CRON_MAX_BATCH_SIZE || 100; // Define the maximum batch size for updates
     const totalUsers = users.length;
     const batchSize = Math.min(totalUsers, maxBatchSize); // Calculate the dynamic batch size

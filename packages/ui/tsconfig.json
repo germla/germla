@@ -1,5 +1,8 @@
 {
-  "extends": "@germla/tsconfig/react-library.json",
+  "extends": "@germla/config/ts/react-library.json",
+  "compilerOptions": {
+    "resolveJsonModule": true
+  },
   "include": ["."],
-  "exclude": ["dist", "build", "node_modules"]
+  "exclude": ["dist", "build", "node_modules", "postcss.config.js", "tailwind.config.js"]
 }

@@ -24,7 +24,6 @@
   },
   "devDependencies": {
     "@germla/config": "workspace:*",
-    "@germla/tsconfig": "workspace:*",
     "@types/bcryptjs": "^2.4.2",
     "@types/jsonwebtoken": "^9.0.2",
     "eslint": "^8.40.0",

@@ -9,5 +9,6 @@
     ],
     "eslint.options": {
         "overrideConfigFile": "./packages/config/eslint-config.js"
-    }
+    },
+    "eslint.packageManager": "pnpm"
 }

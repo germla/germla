@@ -1,5 +1,5 @@
 {
-  "extends": "@germla/tsconfig/nextjs.json",
+  "extends": "@germla/config/ts/nextjs.json",
   "compilerOptions": {
     "plugins": [{ "name": "next" }],
     "baseUrl": ".",

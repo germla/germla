@@ -1,14 +1,13 @@
-import { Workspace } from "@prisma/client";
+import { CompleteWorkspace }from "@germla/database/zod";
 import prisma from "@germla/database";
 import { getServerSession } from "next-auth";
 import { GetServerSidePropsContext } from "next";
-import { authConfig } from "@/pages/api/auth/[...nextauth]";
 import { useRouter } from "next/router";
 import DashboardLayout from "@/layouts/dashboard";
 import { useBoards } from "@/hooks/board";
 import { useModalStore } from "@/lib/modal";
 
-export default function WorkspaceBoards({ workspace }: { workspace: Workspace }) {
+export default function WorkspaceBoards({ workspace }: { workspace: CompleteWorkspace }) {
     const { boards } = useBoards(workspace.id)
     const { toggleModal } = useModalStore();
     const router = useRouter();
