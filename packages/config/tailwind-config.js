@@ -54,5 +54,9 @@ module.exports = {
             },
         },
     },
+    safelist: [
+        "underline",
+        "line-through",
+    ],
     plugins: [require("@tailwindcss/typography"), require("tailwindcss-animate")],
 };

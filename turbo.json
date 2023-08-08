@@ -25,7 +25,8 @@
     },
     "db:push": {
       "cache": false
-    }
+    },
+    "test": {}
   },
   "globalEnv": [
     "GOOGLE_CLIENT_ID",
