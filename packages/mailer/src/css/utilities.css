@@ -1,0 +1,5 @@
+@layer utilities {
+  .break-word {
+    word-break: break-word;
+  }
+}
