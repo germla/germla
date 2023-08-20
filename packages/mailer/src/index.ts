@@ -46,29 +46,23 @@ export const sendEmail = async (options: SendEmailOptions) => {
                   word-break: break-word;
                 }
               }`,
-        
     },
-    maizzle: require('../config.js'),
-    beforeRender: (config) => {
-        config = {
-            link: 'example',
-                app: {
-                    name: 'xyz',
-                    url: 'https://example.com',
-                }
-        }
-    }
-  }).then(({ html }) => {
-    console.log(html);
-  })
+    maizzle: require("../config.js"),
+    beforeRender: (html, config) => {
+      config.link = 'https://germla.space'
+
+      return html
+    },
+  }).then((config) => {
+    console.log(config);
+  });
 };
 
-
 sendEmail({
-    to: "Gaurish",
-    subject: "Test",
-    template: "confirmation",
-    data: {
-        link: "https://germla.space",
-    },
-})
+  to: "Gaurish",
+  subject: "Test",
+  template: "confirmation",
+  data: {
+    link: "https://germla.space",
+  },
+});

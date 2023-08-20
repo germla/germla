@@ -9,8 +9,8 @@ preheader: "Please confirm your email address in order to activate your account.
       <tr>
         <td class="w-[552px] max-w-full">
           <div class="my-12 sm:my-8 text-center">
-            <a href="@@{{ page.app.url }}">
-              <img src="assets/logo.png" width="70" alt="@@{{ page.app.name }}">
+            <a href="{{ app.url }}">
+              <img src="assets/logo.png" width="70" alt="{{ app.name }}">
             </a>
           </div>
 
@@ -22,12 +22,12 @@ preheader: "Please confirm your email address in order to activate your account.
                 </h1>
 
                 <p class="m-0 leading-6">
-                  Thank you for signing up for @@{{ page.app.name }}. Complete your registration by clicking the button below. 
+                  Thank you for signing up for {{ app.name }}. Complete your registration by clicking the button below. 
                 </p>
 
                 <x-spacer height="24px" />
 
-                <x-button class="cursor-pointer" align="center" href="@@{{ page.link }}">
+                <x-button class="cursor-pointer" align="center" href="{{ page.link }}">
                   Confirm Account &rarr;
                 </x-button>
 
@@ -36,7 +36,7 @@ preheader: "Please confirm your email address in order to activate your account.
                 <p class="m-0">
                   Thanks,
                   <br />
-                  The @@{{ page.app.name }} Team
+                  The {{ app.name }} Team
                 </p>
               </td>
             </tr>
